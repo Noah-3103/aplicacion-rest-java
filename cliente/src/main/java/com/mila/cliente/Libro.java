@@ -1,5 +1,5 @@
 package com.mila.cliente;
-
+// Clase simple que representa un libro, con atributos básicos y métodos getter/setter
 public class Libro {
     private Long id;
     private String titulo;

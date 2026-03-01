@@ -1,5 +1,5 @@
 package com.mila.cliente;
-
+// Clase simple que representa un autor, con atributos básicos y métodos getter/setter
 public class Autor {
     private Long id;
     private String nombre;

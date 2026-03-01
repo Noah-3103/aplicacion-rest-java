@@ -16,34 +16,36 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mila.servidor.model.Libro;
 import com.mila.servidor.repository.LibroRepository;
-
+// Controlador REST para la entidad Libro
 @RestController
+// Mapear todas las rutas bajo /libros
 @RequestMapping("/libros")
 public class LibroController {
+    // Inyectar el repositorio de libros para acceder a la base de datos
     @Autowired
     private LibroRepository libroRepository;
-
+    // Método para listar todos los libros
     @GetMapping
     public List<Libro> listar() {
         return libroRepository.findAll();
     }
-
+    // Método para obtener un libro por su ID
     @GetMapping("/{id}")
     public ResponseEntity<Libro> obtener(@PathVariable Long id) {
         return libroRepository.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
     }
-
+    // Método para crear un nuevo libro
     @PostMapping
     public ResponseEntity<Libro> crear(@RequestBody Libro libro) {
         Libro guardado = libroRepository.save(libro);
         return ResponseEntity.status(HttpStatus.CREATED).body(guardado);
     }
-
+    // Método para actualizar un libro existente
     @PutMapping("/{id}")
     public ResponseEntity<Libro> actualizar(@PathVariable Long id, @RequestBody Libro libro) {
-        
+        // Verificar si el libro existe antes de actualizar
         if (!libroRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
@@ -51,10 +53,10 @@ public class LibroController {
         Libro actualizado = libroRepository.save(libro);
         return ResponseEntity.ok(actualizado);
     }
-
+    // Método para eliminar un libro por su ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        
+        // Verificar si el libro existe antes de eliminar
         if (!libroRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
