@@ -1,0 +1,26 @@
+# Java
+*.class
+target/
+*.log
+*.jar
+!servidor/target/*.jar
+!cliente/target/*.jar
+
+# IDEs
+.settings/
+.project
+.classpath
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Base de datos SQLite (si usaste)
+*.db
+*.db-shm
+*.db-wal

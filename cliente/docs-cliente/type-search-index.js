@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.mila.cliente","l":"Autor"},{"p":"com.mila.cliente","l":"Libro"},{"p":"com.mila.cliente","l":"Main"}];updateSearchResults();
